@@ -8,7 +8,7 @@ window.AG_CONFIG = {
   /* URL do webhook do Make que recebe o lead (cenário ativo, gravando em Data Store) */
   webhookUrl: "",
   /* Contêiner do Google Tag Manager. Ex.: GTM-XXXXXXX (Pixel, GA4 e API de Conversões ficam dentro do GTM) */
-  gtmId: "",
+  gtmId: "GTM-PTWSRMX6",
   /* E-mail de contato para pedidos de titulares (LGPD), exibido na política de privacidade */
   email: "agiosgrowth@gmail.com"
 };
