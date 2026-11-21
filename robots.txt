@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /obrigado.html
+Sitemap: https://gestaoparamentores.com.br/sitemap.xml

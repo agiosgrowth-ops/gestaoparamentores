@@ -1,0 +1,45 @@
+AGIOS GROWTH · SITE PRONTO (LP + OBRIGADO + PRIVACIDADE)
+Versão 1.0 · 21/11/2026
+
+ARQUIVOS
+  index.html        Landing page (formulário, soluções, para quem é / não é, prova social)
+  obrigado.html     Página de obrigado (botão pulsante do WhatsApp)
+  privacidade.html  Política de Privacidade (LGPD) em nome de Antonio Claudio Lourenço Junior
+  config.js         ÚNICO arquivo para editar antes de publicar
+  style.css, app.js Visual e comportamento (não precisa mexer)
+  img/              Imagens otimizadas (WebP)
+
+O LINK DO RODAPÉ
+  O rodapé de index.html e obrigado.html aponta para privacidade.html (mesma pasta).
+  Publicando a pasta inteira, o link funciona em: seudominio.com.br/privacidade.html
+
+ANTES DE PUBLICAR · edite config.js
+  whatsapp    Número com DDI, só dígitos. Ex.: 5516999999999
+              Vazio = o botão abre o WhatsApp sem contato definido.
+  webhookUrl  URL do webhook do Make (cenário ativo gravando em Data Store).
+              Vazio = o formulário NÃO envia o lead a lugar nenhum (só serve para teste).
+  gtmId       GTM-XXXXXXX. Pixel, GA4 e API de Conversões entram dentro do GTM.
+              Vazio = nada de rastreamento é instalado e o aviso de cookies fica oculto.
+  email       E-mail que aparece na política para pedidos de titulares (LGPD).
+              Vazio = a política indica o WhatsApp de atendimento.
+
+EVENTOS PARA O GTM (dataLayer)
+  generate_lead  Disparado no envio do formulário (com event_id). Use como gatilho do evento Lead.
+  join_group     Disparado no clique do botão do WhatsApp em obrigado.html.
+  O mesmo event_id vai no corpo enviado ao Make, para deduplicar o Pixel com a API de Conversões.
+
+CAMPOS ENVIADOS AO WEBHOOK (formato application/x-www-form-urlencoded)
+  nome, cidade, whatsapp "(DD) 9XXXX-XXXX", descricao, event_id, fbp, pagina, horario,
+  utm_source, utm_medium, utm_campaign, utm_content, utm_term, fbclid, gclid, promessa (parâmetro ?p=), fbc (vazio)
+
+TESTE TESTE TESTE
+  1. Publicar a pasta e abrir seudominio.com.br/?utm_source=teste&p=1 (para ver o visual, dá para abrir index.html direto no navegador).
+  2. Enviar o formulário e conferir o lead no Make (Data Store) com as UTMs.
+  3. Conferir os eventos no Testar eventos do Meta e no Pixel Helper.
+  4. Apagar os leads de teste antes de ligar os anúncios.
+
+PENDÊNCIAS CONHECIDAS
+  - Política de Privacidade: texto padrão LGPD, recomenda-se revisão jurídica antes de rodar anúncio.
+  - Prova social: números do caso datados de 13/11/2026. Atualizar após a primeira aula ao vivo.
+  - Fontes (Cormorant Garamond e Manrope) carregam do Google Fonts. Para velocidade máxima, hospedar localmente.
+  - Domínio definido: gestaoparamentores.com.br (canonical, og:url, og:image, robots.txt e sitemap.xml já apontam para ele).
