@@ -6,7 +6,7 @@ window.AG_CONFIG = {
   /* Texto que já vai preenchido na conversa do WhatsApp */
   whatsappMsg: "Olá, Toni! Acabei de enviar minha aplicação pelo site e quero agilizar o atendimento.",
   /* URL do webhook do Make que recebe o lead (cenário ativo, gravando em Data Store) */
-  webhookUrl: "",
+  webhookUrl: "https://ancientlookingkiwi-n8n.cloudfy.live/webhook/leads-agios",
   /* Contêiner do Google Tag Manager. Ex.: GTM-XXXXXXX (Pixel, GA4 e API de Conversões ficam dentro do GTM) */
   gtmId: "GTM-PTWSRMX6",
   /* E-mail de contato para pedidos de titulares (LGPD), exibido na política de privacidade */

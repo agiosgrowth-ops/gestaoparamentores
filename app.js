@@ -77,6 +77,7 @@
       nome: function (v) { return v.trim().split(/\s+/).length >= 2 && v.trim().length >= 5 ? "" : "Informe nome e sobrenome."; },
       cidade: function (v) { return v.trim().length >= 2 ? "" : "Informe sua cidade."; },
       whatsapp: function (v) { var n = v.replace(/\D/g, ""); return n.length === 11 && n.charAt(2) === "9" ? "" : "Use o formato (DD) 9XXXX-XXXX."; },
+      email: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? "" : "Informe um e-mail válido."; },
       descricao: function (v) { return v.trim().length >= 15 ? "" : "Conte em uma frase o que você ensina e onde trava hoje."; }
     };
     function check(name) {
@@ -110,6 +111,7 @@
         nome: form.elements.nome.value.trim(),
         cidade: form.elements.cidade.value.trim(),
         whatsapp: form.elements.whatsapp.value,
+        email: form.elements.email.value.trim().toLowerCase(),
         descricao: form.elements.descricao.value.trim(),
         event_id: id,
         fbp: cookie("_fbp"),
@@ -117,7 +119,7 @@
         horario: new Date().toISOString()
       };
       KEYS.forEach(function (k) { data[k === "p" ? "promessa" : k] = store.get("ag_" + k); });
-      data.fbc = "";
+      data.fbc = cookie("_fbc") || "";
       store.set("ag_nome", data.nome.split(/\s+/)[0]);
       store.set("ag_event_id", id);
 
